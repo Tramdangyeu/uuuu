@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <form id="registrationForm" onsubmit="submitForm(event)">
+        <table border="1" cellspacing="0">
+            <tr>
+                <td><lable for= "name" >Your name</lable></td>
+                <td><input type = "text" id ="fname" name="fname" placeholder="Full Name" required> </td>
+            </tr>
+            <tr>
+                <td><label for ="email"> Email address </label></td>
+                <td><input type ="email" id ="email" name ="email" placeholder="Email" required> </td>
+            </tr>
+            <!-- <tr>
+                <td><label for =birthday ></label> </td>
+            </tr> -->
+            <tr>
+                <td>
+                <b>Birthday</b>
+                </td>
+                <td>
+                <input type="date" name="txtDate" id="txtDate" min="2000-01-01" />
+                </td>
+            </tr>
+            <tr>
+                <td>Birthtime</td>
+                <td>
+                    <input type="time" name="txtTime" id="txtTime" min="00:00" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    <form>
+                        <input name="gender" type="radio" value="Male" /> Mail
+                        <input name="gender" type="radio" value="Female" /> Female
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    From
+                </td>
+                <td>
+                    <select id="country">
+                        <option>country</option>
+                        <option value="Viet Nam">Viet Nam</option>
+                        <option value="ThaiLand">Thailand</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Singapore">Singapore</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Favorite IDE </td>
+                <td>
+                    <input name="IDE" type="checkbox"  /> Visual Studio Code <br/>
+                    <input name="IDE" type="checkbox"  /> Sublime Text <br/>
+                    <input name="IDE" type="checkbox"  /> Eclipse <br/>
+                    <input name="IDE" type="checkbox"  /> Atom <br/>
+                    <input name="IDE" type="checkbox"  /> Intelij Idea
+                </td>
+            </tr>
+            <tr>
+                <td>TOEIC test</td>
+                <td>
+                    <input type="range" min="0" max="900" value="50" id="mySlider">
+                </td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td><textarea id="feedback" name="feedback" ></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td> <button type="submit">Register</button> 
+                <button type="button" id="againButton" onclick="resetForm()">Again</button></td>
+            </tr>
+        </table> 
+        <script>
+            // Function to reset the form
+            function resetForm() {
+                document.getElementById('registrationForm').reset();
+            }
+    
+            // Function to handle form submission
+            function submitForm(event) {
+                event.preventDefault(); // Prevent the default form submission
+                var formData = {
+                    name: document.getElementById('fname').value,
+                    email: document.getElementById('email').value,
+                    Birthday : document.getElementById('txtDate').value,
+                    Birthtime: document.getElementById('txtTime').value,
+                    Gender: document.getElementsByName('gender').value,
+                    From: document.getElementById('country').value,
+                    FavoriteIDA : document.getElementsByName('IDE').value,
+                    TOEIC :document.getElementById('mySlider').value,
+                    Message :document.getElementById('feedback').value,
+                    // Add other form fields as needed
+                };
+    
+                // Display the form data (you can replace this with your desired logic)
+                alert('Form submitted!\n' + JSON.stringify(formData, null, 2));
+            }
+        </script>
+    </form>
+
+</body>
+</html>
